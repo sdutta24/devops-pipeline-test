@@ -8,5 +8,14 @@ pipeline {
         sh 'python --version'
       }
     }
+    stage('Setup Python Environment'){
+      steps{
+        sh '''
+        python -m venv venv
+        source venv/bin/activate
+        python --version
+        '''
+      }
+    }
   }
 }
