@@ -1,0 +1,3 @@
+pytest         # For running unit tests
+numpy         # If using advanced mathematical functions
+flask         # If deploying as a web service
