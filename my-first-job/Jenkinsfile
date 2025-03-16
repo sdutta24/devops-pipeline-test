@@ -54,8 +54,7 @@ pipeline {
       steps {
         sh '''
         mkdir -p dist
-        cd $WORKSPACE/my-first-job        
-        cp calculator1.py dist/
+        cp $WORKSPACE/my-first-job/calculator1.py dist/
         '''
       }
     }
