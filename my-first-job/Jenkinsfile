@@ -39,7 +39,7 @@ pipeline {
         sh '''
         source venv/bin/activate
         cd my-first-job
-        python calculator.py
+        python calculator1.py
         '''
       }
     }
