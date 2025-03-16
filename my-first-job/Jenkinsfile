@@ -14,7 +14,9 @@ pipeline {
     }
     stage('Install SCP') {
     steps {
-        sh 'apk add --no-cache openssh-client'
+        sh '''
+        sudo apk add --no-cache openssh-client
+        '''
     }
    }
    stage('Setup Python Environment'){
