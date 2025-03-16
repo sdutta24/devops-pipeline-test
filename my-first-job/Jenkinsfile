@@ -2,10 +2,13 @@ pipeline {
   agent {
     docker { image 'python:3.10-alpine' }
   }
+  environment {
+    CI = 'true'  // Enable CI mode
+  }
   stages {
-    stage('Test') {
+    stage('Checkout') {
       steps {
-        sh 'python --version'
+        git url: 'https://github.com/sdutta24/devops-pipeline-test', branch: 'main'
       }
     }
     stage('Setup Python Environment'){
