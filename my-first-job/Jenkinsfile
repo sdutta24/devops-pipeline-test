@@ -4,6 +4,7 @@ pipeline {
   }
   environment {
     CI = 'true'  // Enable CI mode
+    PYTEST_ARGS = "tests/ --junitxml=reports/test-results.xml -v -s"
   }
   stages {
     stage('Checkout') {
@@ -38,5 +39,13 @@ pipeline {
         '''
       }
     }
+    stage('Run Tests') {
+    steps {
+        sh '''
+        source venv/bin/activate
+        pytest $PYTEST_ARGS
+        '''
+    }
+   }
   }
 }
