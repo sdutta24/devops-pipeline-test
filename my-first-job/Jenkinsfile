@@ -12,7 +12,12 @@ pipeline {
         git url: 'https://github.com/sdutta24/devops-pipeline-test', branch: 'main'
       }
     }
-    stage('Setup Python Environment'){
+    stage('Install SCP') {
+    steps {
+        sh 'apk add --no-cache openssh-client'
+    }
+   }
+   stage('Setup Python Environment'){
       steps{
         sh '''
         python -m venv venv
