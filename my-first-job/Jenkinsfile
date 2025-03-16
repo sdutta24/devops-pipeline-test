@@ -4,7 +4,7 @@ pipeline {
   }
   environment {
     CI = 'true'  // Enable CI mode
-    PYTEST_ARGS = "$WORKSPACE/tests/ --junitxml=reports/test-results.xml -v -s"
+    PYTEST_ARGS = "tests/ --junitxml=reports/test-results.xml -v -s"
   }
   stages {
     stage('Checkout') {
@@ -44,6 +44,7 @@ pipeline {
     steps {
         sh '''
         source venv/bin/activate
+        cd $WORKSPACE/my-first-job
         pytest $PYTEST_ARGS
         '''
     }
