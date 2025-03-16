@@ -59,9 +59,6 @@ pipeline {
       }
     }
     stage('Deploy') {
-      when {
-        branch 'main'  // Deploy only from the 'main' branch
-      }
       steps {
         withCredentials([sshUserPrivateKey(credentialsId: 'server-ssh-key', keyFileVariable: 'SSH_KEY')]) {
           sh '''
