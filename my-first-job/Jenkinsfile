@@ -4,7 +4,7 @@ pipeline {
   }
   environment {
     CI = 'true'  // Enable CI mode
-    PYTEST_ARGS = "tests/ --junitxml=reports/test-results.xml -v -s"
+    PYTEST_ARGS = "$WORKSPACE/tests/ --junitxml=reports/test-results.xml -v -s"
   }
   stages {
     stage('Checkout') {
