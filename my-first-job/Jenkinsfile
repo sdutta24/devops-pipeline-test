@@ -33,7 +33,7 @@ pipeline {
       steps {
         sh '''
         source venv/bin/activate
-        python calculator.py
+        python my-first-job/calculator.py
         '''
       }
     }
