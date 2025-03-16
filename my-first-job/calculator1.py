@@ -13,13 +13,16 @@ def calculate(operation, num1, num2):
         return "Invalid operation"
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: python calculator1.py <operation> <num1> <num2>")
-        sys.exit(1)
-
-    operation = sys.argv[1].lower()
-    num1 = float(sys.argv[2])
-    num2 = float(sys.argv[3])
+    # Check if arguments are provided
+    if len(sys.argv) == 4:
+        operation = sys.argv[1].lower()
+        num1 = float(sys.argv[2])
+        num2 = float(sys.argv[3])
+    else:
+        # Default values for non-interactive environments (like Jenkins)
+        operation = "add"
+        num1 = 10
+        num2 = 5
 
     result = calculate(operation, num1, num2)
-    print(f"Result: {result}")
+    print(f"Operation: {operation}, Numbers: {num1}, {num2}, Result: {result}")
