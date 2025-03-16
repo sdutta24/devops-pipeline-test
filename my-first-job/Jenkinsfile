@@ -11,6 +11,11 @@ pipeline {
         git url: 'https://github.com/sdutta24/devops-pipeline-test', branch: 'main'
       }
     }
+    stage('Debug Workspace') {
+    steps {
+        sh 'ls -R $WORKSPACE'
+    }
+    }
     stage('Setup Python Environment'){
       steps{
         sh '''
