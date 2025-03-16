@@ -25,8 +25,8 @@ pipeline {
       steps{
         sh '''
         source venv/bin/activate
-        pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        sudo -H pip install --upgrade pip
+        if [ -f requirements.txt ]; then sudo -H pip install -r requirements.txt; fi
         '''
       }
     }
