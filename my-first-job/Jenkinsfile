@@ -38,7 +38,7 @@ pipeline {
       steps {
         sh '''
         source venv/bin/activate
-        cd my-first-job
+        cd $WORKSPACE/my-first-job
         python calculator1.py
         '''
       }
