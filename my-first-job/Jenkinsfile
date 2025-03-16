@@ -50,5 +50,13 @@ pipeline {
         '''
     }
    }
+    stage('Package Application') {
+      steps {
+        sh '''
+        mkdir -p dist
+        cp calculator.py dist/
+        '''
+      }
+    }
   }
 }
