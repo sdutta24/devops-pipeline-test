@@ -69,7 +69,8 @@ pipeline {
           scp -i $SSH_KEY -r dist/* ubuntu@ip-172-31-20-89.us-west-2.compute.internal:/var/local
           echo "Deployment completed!"
           '''
-      }
-    }
-  }
+       }
+     }
+   }
+ }
 }
