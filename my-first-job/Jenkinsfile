@@ -58,5 +58,18 @@ pipeline {
         '''
       }
     }
+    stage('Deploy') {
+      when {
+        branch 'main'  // Deploy only from the 'main' branch
+      }
+      steps {
+        withCredentials([sshUserPrivateKey(credentialsId: 'server-ssh-key', keyFileVariable: 'SSH_KEY')]) {
+          sh '''
+          echo "Deploying calculator script..."
+          scp -i $SSH_KEY -r dist/* ubuntu@ip-172-31-20-89.us-west-2.compute.internal:/var/local
+          echo "Deployment completed!"
+          '''
+      }
+    }
   }
 }
