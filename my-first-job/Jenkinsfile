@@ -54,7 +54,7 @@ pipeline {
       steps {
         sh '''
         mkdir -p dist
-        cp calculator.py dist/
+        cp calculator1.py dist/
         '''
       }
     }
