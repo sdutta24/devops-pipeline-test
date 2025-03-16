@@ -1,32 +1,25 @@
-def add(a, b):
-    return a + b
+import sys
 
-def subtract(a, b):
-    return a - b
-
-def multiply(a, b):
-    return a * b
-
-def divide(a, b):
-    if b == 0:
-        return "Error! Division by zero."
-    return a / b
+def calculate(operation, num1, num2):
+    if operation == "add":
+        return num1 + num2
+    elif operation == "subtract":
+        return num1 - num2
+    elif operation == "multiply":
+        return num1 * num2
+    elif operation == "divide":
+        return num1 / num2
+    else:
+        return "Invalid operation"
 
 if __name__ == "__main__":
-    print("Simple Calculator")
-    print("Operations: add, subtract, multiply, divide")
-    
-    operation = input("Enter operation: ").strip().lower()
-    num1 = float(input("Enter first number: "))
-    num2 = float(input("Enter second number: "))
+    if len(sys.argv) != 4:
+        print("Usage: python calculator1.py <operation> <num1> <num2>")
+        sys.exit(1)
 
-    if operation == "add":
-        print("Result:", add(num1, num2))
-    elif operation == "subtract":
-        print("Result:", subtract(num1, num2))
-    elif operation == "multiply":
-        print("Result:", multiply(num1, num2))
-    elif operation == "divide":
-        print("Result:", divide(num1, num2))
-    else:
-        print("Invalid operation")
+    operation = sys.argv[1].lower()
+    num1 = float(sys.argv[2])
+    num2 = float(sys.argv[3])
+
+    result = calculate(operation, num1, num2)
+    print(f"Result: {result}")
