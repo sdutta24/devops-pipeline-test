@@ -1,7 +1,8 @@
 pipeline {
   agent {
-    docker { image 'python:3.10-alpine' }
+    docker { image 'python:3.10-alpine' 
     args '--user root'
+           }
   }
   environment {
     CI = 'true'  // Enable CI mode
