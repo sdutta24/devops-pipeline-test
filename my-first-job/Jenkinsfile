@@ -1,6 +1,7 @@
 pipeline {
   agent {
     docker { image 'python:3.10-alpine' }
+    args '--user root'
   }
   environment {
     CI = 'true'  // Enable CI mode
@@ -15,7 +16,7 @@ pipeline {
     stage('Install SCP') {
     steps {
         sh '''
-        sudo apk add --no-cache openssh-client
+        apk add --no-cache openssh-client
         '''
     }
    }
