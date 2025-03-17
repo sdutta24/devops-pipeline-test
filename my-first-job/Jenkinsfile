@@ -75,10 +75,11 @@ pipeline {
     stage('Deploy') {
       steps {
         sh '''
-                echo "Deploying calculator script..."
-                cp -r dist/* /var/local/
-                echo "Deployment completed!"
-                '''
+        echo "Deploying calculator script..."
+        sudo cp -r dist/* /var/local/
+        sudo chown -R ubuntu:ubuntu /var/local/
+        echo "Deployment completed!"
+        '''
        }
      }
    }
