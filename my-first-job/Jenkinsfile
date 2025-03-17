@@ -14,8 +14,7 @@ pipeline {
         git url: 'https://github.com/sdutta24/devops-pipeline-test', branch: 'main'
       }
     }
-    stages {
-        stage('Install rsync') {
+    stage('Install rsync') {
             steps {
                 sh 'apk add --no-cache rsync'
             }
