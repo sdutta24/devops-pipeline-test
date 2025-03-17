@@ -77,7 +77,7 @@ pipeline {
         withCredentials([sshUserPrivateKey(credentialsId: 'server-ssh-key', keyFileVariable: 'SSH_KEY')]) {
           sh '''
             echo "Deploying calculator script using rsync..."
-            rsync -avz -e "ssh -o StrictHostKeyChecking=no -i $SSH_KEY" dist/ ubuntu@34.221.177.83:/var/local/
+            rsync -avz -e "ssh -o StrictHostKeyChecking=no -i $SSH_KEY" dist/ ubuntu@ip-172-31-20-89.us-west-2.compute.internal:/var/local/
             echo "Deployment completed!"
             '''
        }
