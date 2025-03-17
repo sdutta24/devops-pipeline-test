@@ -1,8 +1,7 @@
 pipeline {
   agent {
     docker { image 'python:3.10-alpine' 
-    args '--user root'
-    args '-v /var/local:/var/local'
+    args '--user root -v /var/local:/var/local'
            }
   }
   environment {
