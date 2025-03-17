@@ -74,12 +74,11 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        withCredentials([sshUserPrivateKey(credentialsId: 'new-deploy-key', keyFileVariable: 'SSH_KEY')]) {
-                    sh '''
-                    echo "Deploying calculator script using rsync..."
-                    rsync -avz -e "ssh -o StrictHostKeyChecking=no -i $SSH_KEY" dist/ ubuntu@ip-172-31-20-89.us-west-2.compute.internal:/var/local/
-                    echo "Deployment completed!"
-                    '''
+        sh '''
+                echo "Deploying calculator script..."
+                cp -r dist/* /var/local/
+                echo "Deployment completed!"
+                '''
        }
      }
    }
