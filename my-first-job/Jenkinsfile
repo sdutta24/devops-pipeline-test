@@ -77,8 +77,8 @@ pipeline {
         sh '''
         echo "Deploying calculator script..."
         cp -r dist/* /var/local/
-        chown -R ubuntu:ubuntu /var/local/
-        echo "Deployment completed!"
+        echo "Files in /var/local after copying:"
+        ls -l /var/local/
         '''
        }
      }
